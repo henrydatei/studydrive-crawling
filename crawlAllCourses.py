@@ -1,6 +1,7 @@
 from studydrive import studydriveapi
 from datetime import datetime
 import multiprocessing
+from tqdm import tqdm
 
 def produceOutput(universityID):
     print(universityID)
@@ -49,8 +50,9 @@ finally:
 api = studydriveapi.StudydriveAPI()
 api.login(mainUsername, mainPassword)
 
-p = multiprocessing.Pool(20)
+#p = multiprocessing.Pool(20)
 unis = [university["university_id"] for university in api.getUniversities()]
 with open("output.csv", "w") as f:
-    for result in p.imap(produceOutput, unis):
-        f.write(result + "\n")
+    #for result in p.imap(produceOutput, unis):
+	for uni in tqdm(unis):
+		f.write(produceOutput(uni) + "\n")

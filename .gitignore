@@ -130,5 +130,5 @@ dmypy.json
 
 main-account.txt
 
-alleUniversitaeten.csv
-output_universities.csv
+*.csv
+test.py
