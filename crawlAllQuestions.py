@@ -154,7 +154,19 @@ def produceOutput(questionID):
 
 questionType = "course"
 #produceOutput(1986487)
+ids = range(500000)
+#ids = range(500000, 1000000)
+#ids = range(1000000, 1500000)
+#ids = range(1500000, 2000000)
 
-ids = range(1000)
+#questionType = "group"
+#ids = range(500000)
+#ids = range(500000, 1000000)
+#ids = range(1000000, 1100000)
+
+#questionType = "document"
+#ids = range(500000)
+#ids = range(500000, 800000)
+
 p = multiprocessing.Pool(20)
 p.map(produceOutput, ids)
